@@ -24,6 +24,7 @@ function inventory_app_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'All Pages';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -49,9 +50,10 @@ function inventory_app_views_default_views() {
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'footable';
   $handler->display->display_options['style_options']['columns'] = array(
     'field_current_id' => 'field_current_id',
     'title' => 'title',
@@ -61,6 +63,8 @@ function inventory_app_views_default_views() {
     'field_future_url' => 'field_future_url',
     'nid' => 'nid',
     'field_site_map_label' => 'field_site_map_label',
+    'field_locales' => 'field_locales',
+    'field_topic' => 'field_topic',
   );
   $handler->display->display_options['style_options']['default'] = 'field_current_id';
   $handler->display->display_options['style_options']['info'] = array(
@@ -93,14 +97,14 @@ function inventory_app_views_default_views() {
       'empty_column' => 0,
     ),
     'field_future_template' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_future_url' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -119,6 +123,68 @@ function inventory_app_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+    ),
+    'field_locales' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_topic' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'field_current_id',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'field_current_id' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'title' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_current_url' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_future_id' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_future_template' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
+      'field_future_url' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'nid' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_site_map_label' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'field_locales' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'field_topic' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
     ),
   );
   /* Field: Content: Current ID */
@@ -156,11 +222,12 @@ function inventory_app_views_default_views() {
   $handler->display->display_options['fields']['field_site_map_label']['id'] = 'field_site_map_label';
   $handler->display->display_options['fields']['field_site_map_label']['table'] = 'field_data_field_site_map_label';
   $handler->display->display_options['fields']['field_site_map_label']['field'] = 'field_site_map_label';
-  /* Field: Content: Locales */
+  /* Field: COUNT(DISTINCT Content: Locales) */
   $handler->display->display_options['fields']['field_locales']['id'] = 'field_locales';
   $handler->display->display_options['fields']['field_locales']['table'] = 'field_data_field_locales';
   $handler->display->display_options['fields']['field_locales']['field'] = 'field_locales';
-  $handler->display->display_options['fields']['field_locales']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_locales']['group_type'] = 'count_distinct';
+  $handler->display->display_options['fields']['field_locales']['separator'] = ', ';
   /* Field: Content: Topic */
   $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
@@ -246,6 +313,7 @@ function inventory_app_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['path'] = 'all-pages';
   $export['all_pages'] = $view;
 
