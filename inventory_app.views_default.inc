@@ -38,9 +38,6 @@ function inventory_app_views_default_views() {
       'collapsible_label' => NULL,
       'combine_rewrite' => NULL,
       'reset_label' => NULL,
-      'bef_filter_description' => NULL,
-      'any_label' => NULL,
-      'filter_rewrite_values' => NULL,
     ),
     'field_locales_tid' => array(
       'bef_format' => 'default',
@@ -59,17 +56,11 @@ function inventory_app_views_default_views() {
             'collapsible_label' => NULL,
             'combine_rewrite' => NULL,
             'reset_label' => NULL,
-            'bef_filter_description' => NULL,
-            'any_label' => NULL,
-            'filter_rewrite_values' => NULL,
           ),
           'secondary_label' => NULL,
           'collapsible_label' => NULL,
           'combine_rewrite' => NULL,
           'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
-          'filter_rewrite_values' => NULL,
         ),
         'rewrite' => array(
           'filter_rewrite_values' => '',
@@ -77,23 +68,17 @@ function inventory_app_views_default_views() {
           'collapsible_label' => NULL,
           'combine_rewrite' => NULL,
           'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
         ),
         'table_filter' => '_none',
         'secondary_label' => NULL,
         'collapsible_label' => NULL,
         'combine_rewrite' => NULL,
         'reset_label' => NULL,
-        'filter_rewrite_values' => NULL,
       ),
       'secondary_label' => NULL,
       'collapsible_label' => NULL,
       'combine_rewrite' => NULL,
       'reset_label' => NULL,
-      'bef_filter_description' => NULL,
-      'any_label' => NULL,
-      'filter_rewrite_values' => NULL,
     ),
     'field_topic_tid' => array(
       'bef_format' => 'default',
@@ -111,17 +96,11 @@ function inventory_app_views_default_views() {
             'collapsible_label' => NULL,
             'combine_rewrite' => NULL,
             'reset_label' => NULL,
-            'bef_filter_description' => NULL,
-            'any_label' => NULL,
-            'filter_rewrite_values' => NULL,
           ),
           'secondary_label' => NULL,
           'collapsible_label' => NULL,
           'combine_rewrite' => NULL,
           'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
-          'filter_rewrite_values' => NULL,
         ),
         'rewrite' => array(
           'filter_rewrite_values' => '',
@@ -129,31 +108,22 @@ function inventory_app_views_default_views() {
           'collapsible_label' => NULL,
           'combine_rewrite' => NULL,
           'reset_label' => NULL,
-          'bef_filter_description' => NULL,
-          'any_label' => NULL,
         ),
         'table_filter' => '_none',
         'secondary_label' => NULL,
         'collapsible_label' => NULL,
         'combine_rewrite' => NULL,
         'reset_label' => NULL,
-        'filter_rewrite_values' => NULL,
       ),
       'secondary_label' => NULL,
       'collapsible_label' => NULL,
       'combine_rewrite' => NULL,
       'reset_label' => NULL,
-      'bef_filter_description' => NULL,
-      'any_label' => NULL,
-      'filter_rewrite_values' => NULL,
     ),
     'secondary_label' => NULL,
     'collapsible_label' => NULL,
     'combine_rewrite' => NULL,
     'reset_label' => NULL,
-    'bef_filter_description' => NULL,
-    'any_label' => NULL,
-    'filter_rewrite_values' => NULL,
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
@@ -376,50 +346,7 @@ function inventory_app_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'inventory_page' => 'inventory_page',
   );
-  /* Filter criterion: Content: Locales (field_locales) */
-  $handler->display->display_options['filters']['field_locales_tid']['id'] = 'field_locales_tid';
-  $handler->display->display_options['filters']['field_locales_tid']['table'] = 'field_data_field_locales';
-  $handler->display->display_options['filters']['field_locales_tid']['field'] = 'field_locales_tid';
-  $handler->display->display_options['filters']['field_locales_tid']['value'] = array(
-    16 => '16',
-    17 => '17',
-    18 => '18',
-    19 => '19',
-    20 => '20',
-    21 => '21',
-    22 => '22',
-  );
-  $handler->display->display_options['filters']['field_locales_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_locales_tid']['expose']['operator_id'] = 'field_locales_tid_op';
-  $handler->display->display_options['filters']['field_locales_tid']['expose']['label'] = 'Locales (field_locales)';
-  $handler->display->display_options['filters']['field_locales_tid']['expose']['operator'] = 'field_locales_tid_op';
-  $handler->display->display_options['filters']['field_locales_tid']['expose']['identifier'] = 'field_locales_tid';
-  $handler->display->display_options['filters']['field_locales_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_locales_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_locales_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_locales_tid']['vocabulary'] = 'locale';
-  $handler->display->display_options['filters']['field_locales_tid']['hierarchy'] = 1;
-  /* Filter criterion: Content: Topic (field_topic) */
-  $handler->display->display_options['filters']['field_topic_tid']['id'] = 'field_topic_tid';
-  $handler->display->display_options['filters']['field_topic_tid']['table'] = 'field_data_field_topic';
-  $handler->display->display_options['filters']['field_topic_tid']['field'] = 'field_topic_tid';
-  $handler->display->display_options['filters']['field_topic_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_topic_tid']['expose']['operator_id'] = 'field_topic_tid_op';
-  $handler->display->display_options['filters']['field_topic_tid']['expose']['label'] = 'Topic (field_topic)';
-  $handler->display->display_options['filters']['field_topic_tid']['expose']['operator'] = 'field_topic_tid_op';
-  $handler->display->display_options['filters']['field_topic_tid']['expose']['identifier'] = 'field_topic_tid';
-  $handler->display->display_options['filters']['field_topic_tid']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['field_topic_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-  );
-  $handler->display->display_options['filters']['field_topic_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_topic_tid']['vocabulary'] = 'topic';
+  $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
