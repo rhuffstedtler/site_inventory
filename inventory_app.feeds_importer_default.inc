@@ -43,83 +43,92 @@ function inventory_app_feeds_importer_default() {
         'expire' => '-1',
         'mappings' => array(
           0 => array(
-            'source' => 'current_id',
-            'target' => 'field_current_id',
-            'unique' => FALSE,
+            'source' => 'row_num',
+            'target' => 'guid',
+            'unique' => 1,
           ),
           1 => array(
-            'source' => 'current_url',
-            'target' => 'field_current_url',
+            'source' => 'row_num',
+            'target' => 'field_row_number',
             'unique' => FALSE,
           ),
           2 => array(
-            'source' => 'title',
+            'source' => 'other_title',
             'target' => 'title',
             'unique' => FALSE,
           ),
           3 => array(
+            'source' => 'current_id',
+            'target' => 'field_current_id',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'current_url',
+            'target' => 'field_current_url',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Title',
+            'target' => 'field_site_map_label',
+            'unique' => FALSE,
+          ),
+          6 => array(
             'source' => 'future_id',
             'target' => 'field_future_id',
             'unique' => FALSE,
           ),
-          4 => array(
+          7 => array(
             'source' => 'future_url',
             'target' => 'field_future_url',
             'unique' => FALSE,
           ),
-          5 => array(
+          8 => array(
             'source' => 'body',
             'target' => 'body',
             'unique' => FALSE,
           ),
-          6 => array(
+          9 => array(
             'source' => 'published',
             'target' => 'created',
             'unique' => FALSE,
           ),
-          7 => array(
+          10 => array(
             'source' => 'topic',
             'target' => 'field_topic',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          8 => array(
+          11 => array(
             'source' => 'disposition',
             'target' => 'field_disposition',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          9 => array(
+          12 => array(
             'source' => 'app_or_content',
             'target' => 'field_app_or_content',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          10 => array(
+          13 => array(
             'source' => 'future_template',
             'target' => 'field_future_template',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          11 => array(
+          14 => array(
             'source' => 'notes',
             'target' => 'field_notes',
             'unique' => FALSE,
           ),
-          12 => array(
-            'source' => 'locale',
+          15 => array(
+            'source' => 'locales',
             'target' => 'field_locales',
-            'term_search' => '0',
-            'autocreate' => 1,
-          ),
-          13 => array(
-            'source' => 'row_num',
-            'target' => 'guid',
             'unique' => FALSE,
           ),
-          14 => array(
-            'source' => 'row_num',
-            'target' => 'field_row_number',
+          16 => array(
+            'source' => 'level',
+            'target' => 'field_level',
             'unique' => FALSE,
           ),
         ),

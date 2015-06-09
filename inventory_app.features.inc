@@ -29,7 +29,7 @@ function inventory_app_views_api($module = NULL, $api = NULL) {
 function inventory_app_node_info() {
   $items = array(
     'inventory_page' => array(
-      'name' => t('Page'),
+      'name' => t('Inventory Page'),
       'base' => 'node_content',
       'description' => t('Inventory data for a web page.'),
       'has_title' => '1',
