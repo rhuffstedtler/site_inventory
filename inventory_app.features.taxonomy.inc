@@ -78,6 +78,29 @@ function inventory_app_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'status' => array(
+      'name' => 'Status',
+      'machine_name' => 'status',
+      'description' => 'The migration status (i.e., how far it has progressed through the migration process) of the page or content item',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'template' => array(
       'name' => 'Template',
       'machine_name' => 'template',
