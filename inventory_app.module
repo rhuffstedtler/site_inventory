@@ -5,3 +5,64 @@
  */
 
 include_once 'inventory_app.features.inc';
+
+function inventory_app_form_diff_node_revisions_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['nid'])) {
+    $nid = $form['nid']['#value'];
+  }
+  else {
+    //This means something went wrong
+    $nid = "Unassigned";
+  }
+  //dsm("In the revisions form! Node id is $nid");
+  $node = node_load($nid);
+
+  //A lot of this is cut and paste from diff. 
+  $revision_list = node_revision_list($node);
+
+  if (count($revision_list) > REVISION_LIST_SIZE) {
+    // If the list of revisions is longer than the number shown on one page
+    // split the array.
+    $page = isset($_GET['page']) ? $_GET['page'] : '0';
+    $revision_chunks = array_chunk(node_revision_list($node), REVISION_LIST_SIZE);
+    $revisions = $revision_chunks[$page];
+    // Set up global pager variables as would 'pager_query' do.
+    // These variables are then used in the theme('pager') call later.
+    global $pager_page_array, $pager_total, $pager_total_items;
+    $pager_total_items[0] = count($revision_list);
+    $pager_total[0] = ceil(count($revision_list) / REVISION_LIST_SIZE);
+    $pager_page_array[0] = max(0, min($page, ((int) $pager_total[0]) - 1));
+  }
+  else {
+    $revisions = $revision_list;
+  }
+
+  foreach ($revisions as $revision) {
+    $revision_log = ($revision->log != '') ? '<p class="revision-log">' . filter_xss($revision->log) . '</p>' : '';
+
+    $node_revision = node_load($nid, $revision->vid);
+    //The value of the term reference will be the id, so we have to look it up
+    if (isset($node_revision->field_status[LANGUAGE_NONE][0]['tid']) ) {
+      $status_term = taxonomy_term_load($node_revision->field_status[LANGUAGE_NONE][0]['tid']);
+      $status = $status_term->name;
+    }
+    else {
+      $status = "";
+    }
+    //var_dump($status);
+    //dsm("Rev id is {$revision->vid}. Status is {$status}");
+    //var_dump($node_revision->field_status);
+
+    $form['info'][$revision->vid] = array(
+      '#markup' => t('!date by !username. Status: !status', array(
+      '!date' => l(format_date($revision->timestamp, 'small'), "node/$node->nid"),
+      '!username' => theme('username', array('account' => $revision)),
+      '!status' => $status)) . $revision_log,
+    );
+
+
+
+  }
+
+
+}

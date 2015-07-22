@@ -345,6 +345,13 @@ function inventory_app_views_default_views() {
   $handler->display->display_options['fields']['field_topic']['id'] = 'field_topic';
   $handler->display->display_options['fields']['field_topic']['table'] = 'field_data_field_topic';
   $handler->display->display_options['fields']['field_topic']['field'] = 'field_topic';
+  /* Field: Content: Assignee */
+  $handler->display->display_options['fields']['field_assignee']['id'] = 'field_assignee';
+  $handler->display->display_options['fields']['field_assignee']['table'] = 'field_data_field_assignee';
+  $handler->display->display_options['fields']['field_assignee']['field'] = 'field_assignee';
+  $handler->display->display_options['fields']['field_assignee']['settings'] = array(
+    'link' => 0,
+  );
   /* Sort criterion: Content: Current ID (field_current_id) */
   $handler->display->display_options['sorts']['field_current_id_value']['id'] = 'field_current_id_value';
   $handler->display->display_options['sorts']['field_current_id_value']['table'] = 'field_data_field_current_id';

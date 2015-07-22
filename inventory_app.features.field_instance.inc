@@ -51,6 +51,45 @@ function inventory_app_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-inventory_page-field_assignee'
+  $field_instances['node-inventory_page-field_assignee'] = array(
+    'bundle' => 'inventory_page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_assignee',
+    'label' => 'Assignee',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 15,
+    ),
+  );
+
   // Exported field_instance: 'node-inventory_page-field_current_id'
   $field_instances['node-inventory_page-field_current_id'] = array(
     'bundle' => 'inventory_page',
@@ -508,6 +547,47 @@ function inventory_app_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-inventory_page-field_status'
+  $field_instances['node-inventory_page-field_status'] = array(
+    'bundle' => 'inventory_page',
+    'default_value' => array(
+      0 => array(
+        'tid' => 406,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_status',
+    'label' => 'Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-inventory_page-field_topic'
   $field_instances['node-inventory_page-field_topic'] = array(
     'bundle' => 'inventory_page',
@@ -548,6 +628,7 @@ function inventory_app_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('App or Content');
+  t('Assignee');
   t('Current ID');
   t('Current URL');
   t('Disposition');
@@ -559,6 +640,7 @@ function inventory_app_field_default_field_instances() {
   t('Notes');
   t('Row Number');
   t('Site Map Label');
+  t('Status');
   t('This is the row number from the spreadsheet that was used as a source. It provides a means to get back to the original listing order.');
   t('Topic');
   t('URL for the existing location of the page.');
