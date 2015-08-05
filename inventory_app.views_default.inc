@@ -253,10 +253,13 @@ function inventory_app_views_default_views() {
   $handler->display->display_options['fields']['field_row_number']['table'] = 'field_data_field_row_number';
   $handler->display->display_options['fields']['field_row_number']['field'] = 'field_row_number';
   $handler->display->display_options['fields']['field_row_number']['label'] = 'Row';
+  $handler->display->display_options['fields']['field_row_number']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_row_number']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_row_number']['settings'] = array(
     'thousand_separator' => ' ',
     'prefix_suffix' => 1,
+    'empty_fields_handler' => '',
+    'empty_fields_emptyfieldtext_empty_text' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
